@@ -1,4 +1,5 @@
 <?php
+    header("Cache-Control: no-cache, must-revalidate");
     
     function mimeArray() { 
         return array( 
@@ -162,5 +163,6 @@
             exit;
         }
         echo $file;
+        exit;
     }
 ?>
