@@ -161,7 +161,18 @@
         //else get and check if file exist
         $file = file_get_contents ("https://raw.githubusercontent.com/bmatusiak-irf/example/".$_GET['f']);
         if (!$file) {
-            echo "Unable to open remote file.\n";
+            header("HTTP/1.0 404 Not Found");
+            ?>
+                <HTML>
+                    <HEAD>
+                        <title> 404 Error Page</title>
+                    </HEAD>
+                    <BODY>
+                        <p align="center">
+                        <h1>Error 404</h1><br>Page Not Found
+                    </BODY>
+                </HTML>
+            <?php
             exit;
         }else{
             //save file for cache
