@@ -156,12 +156,18 @@
     
     if (isset($_GET['f']))
     {
-        header('Content-type: '.getMimeType($_GET['f']));
+        //check and get file cache here
+        
+        //else get and check if file exist
         $file = file_get_contents ("https://raw.githubusercontent.com/bmatusiak-irf/example/".$_GET['f']);
         if (!$file) {
             echo "Unable to open remote file.\n";
             exit;
+        }else{
+            //save file for cache
         }
+        
+        header('Content-type: '.getMimeType($_GET['f']));
         echo $file;
         exit;
     }
